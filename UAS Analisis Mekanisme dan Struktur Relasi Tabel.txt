@@ -1,0 +1,37 @@
+Analisis Mekanisme dan Struktur Relasi Tabel Sistem Ketersediaan Kamar
+
+Mekanisme Sistem Ketersediaan Kamar:
+- Input: Pasien masuk atau pulang dari rumah sakit.
+- Proses: * Ketersediaan Kamar: Sistem menampilkan kamar yang tersedia dari masing-masing level kamar pada rumah sakit.
+	  * Kurangnya Ketersediaan Kamar: Ketersediaan kamar berkurang jika ada pasien masuk.
+	  * Pulang Pasien: Ketersediaan kamar kembali setelah pasien pulang.
+
+Struktur Relasi Tabel:
+- Tabel Pasien:
+  - id_pasien
+  - nama_pasien
+  - alamat_pasien
+  - tanggal_masuk
+  - tanggal_pulang
+- Tabel Kamar:
+  - id_kamar
+  - nama_kamar
+  - level_kamar
+  - status_kamar
+- Tabel Ketersediaan Kamar:
+  - id_ketersediaan
+  - id_kamar
+  - tanggal_ketersediaan
+  - status_ketersediaan
+
+Rancangan Relasi Tabel:
+- Tabel Pasien → Tabel Ketersediaan Kamar: : Seorang pasien dapat memiliki beberapa ketersediaan kamar (Misal, kamar yang tersedia sebelum masuk dan kamar yang tersedia setelah pulang).
+- Tabel Kamar → Tabel Ketersediaan Kamar: Sebuah kamar dapat memiliki beberapa ketersediaan kamar (Misal, kamar yang tersedia sebelum masuk dan kamar yang tersedia setelah pulang).
+
+Model dan Migration:
+- Pasien Model
+- Kamar Model
+- Ketersediaan Kamar Model
+
+Migration ke Database MySQL:
+- php artisan migrate
